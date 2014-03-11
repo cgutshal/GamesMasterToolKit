@@ -1,8 +1,10 @@
 class Scroll
-  def initialize(spell_type = "", number_of_spells = 0, scroll_level = 0)
+  def initialize(spell_type = "", number_of_spells = 0, scroll_level = 0, caster_level = 0)
     @spell_type = spell_type
     @number_of_spells = number_of_spells
     @scroll_level = scroll_level
+    @caster_level = caster_level
+    @scroll_vaule = scroll_vaule
   end  
   
   def random_scroll()
@@ -28,6 +30,73 @@ class Scroll
       @number_of_spells = 2
     elsif (number_roll >= 96)
       @number_of_spells = 3
+    end
+  end
+
+  def random_scroll_vaule()
+    vaule_roll = rand(1..3)
+    if vaule_roll == 1
+      @scroll_vaule = "Minor"
+    elsif vaule_roll == 2
+      @scroll_vaule = "Medium"
+    else 
+      @scroll_vaule = "Major"
+    end
+  end
+  
+  def random_scroll_level(@scroll_vaule)
+    level_roll = rand(1..100)
+    if @scroll_vaule == "Minor"
+      case level_roll
+      when 1..5
+        @scroll_level = 0
+        @caster_level = 1
+      when 6..50
+        @scroll_level = 1
+        @caster_level = 1 
+      when 51..95
+        @scroll_level = 2
+        @caster_level = 3 
+      when 96..100
+        @scroll_level = 3
+        @caster_level = 5 
+      end
+    elsif @scroll_vaule == "Medium"
+      case level_roll 
+      when 1..5
+        @scroll_level = 2
+        @caster_level = 3
+      when 6..65
+        @scroll_level = 3
+        @caster_level = 5
+      when 66..95
+        @scroll_level = 4
+        @caster_level = 7
+      when 95..100
+        @scroll_level = 5
+        @caster_level = 9
+      end
+    else
+      case level_roll
+      when 1..5
+        @scroll_level = 4
+        @caster_level = 7
+      when 6..50
+        @scroll_level = 5
+        @caster_level = 9
+      when 51..70
+        @scroll_level = 6
+        @caster_level = 11
+      when 71..85
+        @scroll_level = 7
+        @caster_level = 13
+      when 86..95
+        @scroll_level = 8
+        @caster_level = 15
+      when 96..100
+        @scroll_level = 9
+        @caster_level = 17
+      end
     end
   end
   
