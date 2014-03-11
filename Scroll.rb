@@ -1,14 +1,15 @@
 class Scroll
-  @@level_one_spells = {1..6 => "Acid Splash", 7..10 => "Arcane Mark", 11..13 => "Bleed",  14..18 => "DancingLights", 19..23 => "Daze", 24..30 => "Detect Magic", 31..37 => "Detect Poison", 38..44 => "Disrupt Undead", 45..48 => "Flare", 49..52 => "Ghost Sound", 53..58 => "Light", 59..62 => "Mage Hand", 63..68 => "Mending", 69..76 => "Message", 77..79 => "Open/Close", 80..82 => "Prestidigitation", 83..88 => "Ray of Frost", 89..91 => "Read Magic", 92..95 => 'Resistance',96..100 => "Touch of Fatigue" }
+  @@level_one_arcane_spells = {1..6 => "Acid Splash", 7..10 => "Arcane Mark", 11..13 => "Bleed",  14..18 => "DancingLights", 19..23 => "Daze", 24..30 => "Detect Magic", 31..37 => "Detect Poison", 38..44 => "Disrupt Undead", 45..48 => "Flare", 49..52 => "Ghost Sound", 53..58 => "Light", 59..62 => "Mage Hand", 63..68 => "Mending", 69..76 => "Message", 77..79 => "Open/Close", 80..82 => "Prestidigitation", 83..88 => "Ray of Frost", 89..91 => "Read Magic", 92..95 => 'Resistance',96..100 => "Touch of Fatigue" }
   
-  def initialize(spell_type = "", number_of_spells = 0, scroll_level = 0, caster_level = 0, scroll_vaule='')
+  def initialize(spell_type = "", number_of_spells = 0, scroll_level = 0, caster_level = 0, scroll_vaule='', spell_name = '')
     @spell_type = spell_type
     @number_of_spells = number_of_spells
     @scroll_level = scroll_level
     @caster_level = caster_level
     @scroll_vaule = scroll_vaule
+    @spell_name = spell_name
   end  
-
+  
   def get_scroll_value
     scroll_vaule = @scroll_vaule
     return scroll_vaule.to_i
@@ -17,7 +18,8 @@ class Scroll
   def random_scroll()
     random_type
     random_number_of_spells
-    scroll_level = rand(1..9)
+    random_scroll_level
+    random_spell_name
   end
   
   def random_type()
@@ -39,7 +41,7 @@ class Scroll
       @number_of_spells = 3
     end
   end
-
+  
   def random_scroll_vaule()
     vaule_roll = rand(1..3)
     if vaule_roll == 1
@@ -51,7 +53,7 @@ class Scroll
     end
   end
   
-  def random_scroll_level(get_scroll_value)
+  def random_scroll_level(get_scroll_value = 'Minor')
     level_roll = rand(1..100)
     if @scroll_vaule == "Minor"
       case level_roll
@@ -83,7 +85,7 @@ class Scroll
         @scroll_level = 5
         @caster_level = 9
       end
-    else
+    else # Equals Major
       case level_roll
       when 1..5
         @scroll_level = 4
@@ -107,6 +109,15 @@ class Scroll
     end
   end
   
+  def random_spell_name(get_spell_level = 0)
+    spell_roll = rand(1..100)
+    @@level_one_arcane_spells.each do | dice_range, spell_name |
+      if dice_range === spell_roll
+        @spell_name = spell_name
+      end
+    end 
+  end
+
   def print_scroll_information()
     puts "This is a " + @spell_type.to_s + " Scroll."
     puts "It is a Level " + @scroll_level.to_s + " Scroll."
@@ -116,7 +127,9 @@ class Scroll
       plural = " spells."
     end     
     puts "The scroll has " + @number_of_spells.to_s + plural
+    puts "Ths scroll has the spell " + @spell_name.to_s + " that was written by a level " + @caster_level.to_s + " spellcaster."
   end
+  
 end
 
 
