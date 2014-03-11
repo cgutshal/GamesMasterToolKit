@@ -1,9 +1,15 @@
 class Scroll
-  def initialize(spell_type, number_of_spells, scroll_level)
+  def initialize(spell_type = "", number_of_spells = 0, scroll_level = 0)
     @spell_type = spell_type
     @number_of_spells = number_of_spells
     @scroll_level = scroll_level
   end  
+  
+  def random_scroll()
+    random_type
+    random_number_of_spells
+    scroll_level = rand(1..9)
+  end
   
   def random_type()
     type_roll = rand(1..100)
@@ -16,15 +22,15 @@ class Scroll
   
   def random_number_of_spells()
     number_roll = rand(1..100)
-    if number_roll <= 70 
+    if (number_roll <= 70) 
       @number_of_spells = 1
-    else if number_roll >= 81 && < 96 
+    elsif number_roll >= 81 and number_roll < 96 
       @number_of_spells = 2
-    else if number_roll >= 96
+    elsif (number_roll >= 96)
       @number_of_spells = 3
     end
   end
-    
+  
   def print_scroll_information()
     puts "This is a " + @spell_type.to_s + " Scroll."
     puts "It is a Level " + @scroll_level.to_s + " Scroll."
