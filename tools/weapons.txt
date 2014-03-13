@@ -1,0 +1,3 @@
+01-45 Simple Weapons
+46-80 Martial Weapons
+81-100 Exotic Weapons
