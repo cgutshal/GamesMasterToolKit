@@ -1,0 +1,3 @@
+01 animal growth 1,125 gp
+02-05 baleful polymorph 1,125 gp
+06-07 beast shape III 1,125 gp

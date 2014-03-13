@@ -11,6 +11,9 @@ class Scroll
   @@level_eight_arcane_spells = {}
   @@level_nine_arcane_spells = {}
 
+# Note some spells that are above 90 on the die roll have a higher gold peice vaule" 
+  @@scroll_gold_value = {0 => "12.5gp", 1 => "25gp", 2 => "150gp", 3 => "375gp", 4 => "700gp", 5 => "1125gp", 6 => "1650gp", 7 => "2275gp", 8 => "3000gp", 9 => "3825gp" }
+
   def initialize(spell_type = "", number_of_spells = 0, scroll_level = 0, caster_level = 0, scroll_vaule='', spell_name = '')
     @spell_type = spell_type
     @number_of_spells = number_of_spells
