@@ -9,7 +9,7 @@ end
 def makeRandomScroll()
   new_scroll = Scroll.new
   new_scroll.random_scroll
-new_scroll.random_spell_name
+  new_scroll.random_spell_name
   new_scroll.print_scroll_information
 end
 

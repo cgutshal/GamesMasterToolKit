@@ -1,6 +1,16 @@
 class Scroll
-  @@level_one_arcane_spells = {1..6 => "Acid Splash", 7..10 => "Arcane Mark", 11..13 => "Bleed",  14..18 => "DancingLights", 19..23 => "Daze", 24..30 => "Detect Magic", 31..37 => "Detect Poison", 38..44 => "Disrupt Undead", 45..48 => "Flare", 49..52 => "Ghost Sound", 53..58 => "Light", 59..62 => "Mage Hand", 63..68 => "Mending", 69..76 => "Message", 77..79 => "Open/Close", 80..82 => "Prestidigitation", 83..88 => "Ray of Frost", 89..91 => "Read Magic", 92..95 => 'Resistance',96..100 => "Touch of Fatigue" }
+  @@level_zero_arcane_spells = {1..6 => "Acid Splash", 7..10 => "Arcane Mark", 11..13 => "Bleed",  14..18 => "DancingLights", 19..23 => "Daze", 24..30 => "Detect Magic", 31..37 => "Detect Poison", 38..44 => "Disrupt Undead", 45..48 => "Flare", 49..52 => "Ghost Sound", 53..58 => "Light", 59..62 => "Mage Hand", 63..68 => "Mending", 69..76 => "Message", 77..79 => "Open/Close", 80..82 => "Prestidigitation", 83..88 => "Ray of Frost", 89..91 => "Read Magic", 92..95 => 'Resistance',96..100 => "Touch of Fatigue" }
   
+  @@level_one_arcane_spells = {}
+  @@level_two_arcane_spells = {}
+  @@level_three_arcane_spells = {}
+  @@level_four_arcane_spells = {}
+  @@level_five_arcane_spells = {}
+  @@level_six_arcane_spells = {}
+  @@levle_seven_arcane_spells = {}
+  @@level_eight_arcane_spells = {}
+  @@level_nine_arcane_spells = {}
+
   def initialize(spell_type = "", number_of_spells = 0, scroll_level = 0, caster_level = 0, scroll_vaule='', spell_name = '')
     @spell_type = spell_type
     @number_of_spells = number_of_spells
