@@ -1,10 +1,11 @@
-#!/user/bun/env ruby
+#!/user/bin/env ruby
 
 # puts "Enter filename to convert: "
 # filename = gets.chomp
 # contents = File.read(filename)
 
-contents = File.read('weapons.txt')
+contents = File.read('spells.txt')
+
 items = {}
 current_key = nil
 contents.strip.gsub(/\u2028/," ").split(' ').each do |item|
